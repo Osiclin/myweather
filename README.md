@@ -1,6 +1,6 @@
 ## myWeather
 
-Live Url
+Live Url https://osita-myweather.vercel.app/
 
 This is a Nextjs App
 
