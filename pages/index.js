@@ -33,13 +33,13 @@ export default function Home() {
       </Head>
 
       <main>
-        <div style={{maxWidth: '700px', width: '100%', height: '100vh', padding: '4rem 2rem', backgroundColor: '#80808019', margin: '0 auto'}}>
+        <div style={{maxWidth: '500px', width: '100%', height: '100vh', padding: '4rem 2rem', backgroundColor: '#80808019', margin: '0 auto'}}>
           <Logo/>
-          <div style={{display: 'flex', alignItems: 'center', position: 'relative', marginBottom: '2rem'}}>
+          <div style={{display: 'flex', alignItems: 'center', position: 'relative', marginBottom: '1rem'}}>
             <input type='text' name='location' id='location' placeholder='Search city' onChange={(e) => setCity(e.target.value)}/>
             <div style={{border: '1px solid orange', padding: '.5rem 1rem', backgroundColor: 'orange', fontSize: '1rem', position: 'absolute', cursor: 'pointer', right: 0}} onClick={() => getData()}>Submit</div>
           </div>
-          
+
           {
             data === null ? <div style={{textAlign: 'center'}}>City not found</div> :
             data === undefined ? <Spinner/> : 
@@ -62,22 +62,24 @@ export default function Home() {
 
 const List = ({ temp, city, src, alt, max, min }) => {
   return(
-    <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
-      <div style={{display: 'flex', alignItems: 'center', fontSize: '1.5rem'}}>
-        <div style={{display: 'flex', alignItems: 'center'}}>
-        <div style={{marginRight: '.3rem'}}>{temp}<sup>o</sup>c</div>
-        <div style={{marginRight: '1rem'}}>
-          <div style={{fontSize: '.8rem', marginBottom: '.5rem'}}>max-{max}</div>
-          <div style={{fontSize: '.8rem'}}>min-{min}</div>
+    <div>
+      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+        <div style={{display: 'flex', alignItems: 'center', fontSize: '1.5rem'}}>
+          <div style={{display: 'flex', alignItems: 'center'}}>
+          <div style={{marginRight: '.3rem'}}>{temp}<sup>o</sup>c</div>
+            <div style={{marginRight: '1rem'}}>
+              <div style={{fontSize: '.8rem', marginBottom: '.5rem'}}>max-{max}</div>
+              <div style={{fontSize: '.8rem'}}>min-{min}</div>
+            </div>  
+          </div>
         </div>
+        <div style={{alignSelf: 'end'}}>
+          <img src={`http://openweathermap.org/img/wn/${src}@2x.png`} width='100px' height='100px' alt={alt} />
         </div>
-        
-        <div style={{display: 'flex', alignSelf: 'flex-end'}}>{city}</div>
       </div>
       
-      <div style={{alignSelf: 'end'}}>
-        <img src={`http://openweathermap.org/img/wn/${src}@2x.png`} width='100px' height='100px' alt={alt} />
-      </div>
+      
+      <div style={{textAlign: 'end', marginRight: '1rem'}}>{city}</div>
     </div>
   )
 }
